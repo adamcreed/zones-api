@@ -34,7 +34,8 @@ describe 'Zones-API' do
         get '/api/zones/8'
 
         expect(last_response).to be_ok
-        expect(JSON.parse(last_response.body).first['name']).to eq("'Boneyard_Gully'")
+        expect(JSON.parse(last_response.body).first['name'])
+                                             .to eq("'Boneyard_Gully'")
       end
     end
 
