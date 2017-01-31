@@ -1,9 +1,10 @@
-require_relative 'environment'
+require_relative '../lib/environment'
+require_relative '../model/model'
 
-class CreateZonesTable < ActiveRecord::Migration[5.0]
+class CreateTestZonesTable < ActiveRecord::Migration[5.0]
 
   def up
-    create_table :zones, id: false do |t|
+    create_table :test_zones, id: false do |t|
       t.primary_key :id
       t.integer :zone_type
       t.string :zone_ip
@@ -20,14 +21,14 @@ class CreateZonesTable < ActiveRecord::Migration[5.0]
   end
 
   def down
-    drop_table :zones
+    drop_table :test_zones
   end
 end
 
 def main
   action = (ARGV[0] || :up).to_sym
 
-  CreateZonesTable.migrate(action)
+  CreateTestZonesTable.migrate(action)
 end
 
 main if __FILE__ == $PROGRAM_NAME
